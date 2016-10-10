@@ -13,4 +13,7 @@
 class User < ActiveRecord::Base
   has_many :lists
   has_many :items, through: :lists
+
+  validates :username, :email presence: true
+  validates :email uniqueness: true
 end
